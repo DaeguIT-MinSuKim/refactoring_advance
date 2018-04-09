@@ -32,15 +32,21 @@ public class Customer {
 //          이번에 대여하는 비디오 정보와 대여료를 출력
             result.append("\t"+each.getMovie().getTitle());
             result.append("\t"+String.valueOf(each.getCharge())+"\n");
-            
-//          현재까지 누적된 총 대여료
-            totalAmount += each.getCharge();
+
         }//end of for-loop
         
 //      푸터행 추가
-        result.append("누적 대여료 : " + String.valueOf(totalAmount) + "\n");
+        result.append("누적 대여료 : " + String.valueOf(getTotalCharge()) + "\n");
         result.append("적립 포인트 : " + String.valueOf(frequentRenterPoints));
         
         return result.toString();
     }//end of method statement
+
+	private double getTotalCharge() {
+		double result = 0;
+		for(Rental rental : rentals) {
+			result += rental.getCharge();
+		}
+		return result;
+	}
 }
