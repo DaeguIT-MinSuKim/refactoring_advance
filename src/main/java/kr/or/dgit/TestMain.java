@@ -1,4 +1,8 @@
-package kr.or.dgit.refactoring_advance;
+package kr.or.dgit;
+
+import kr.or.dgit.refactoring_advance.Customer;
+import kr.or.dgit.refactoring_advance.Movie;
+import kr.or.dgit.refactoring_advance.Rental;
 
 public class TestMain {
 	public static void main(String[] args) {
