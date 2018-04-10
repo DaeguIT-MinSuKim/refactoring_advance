@@ -25,4 +25,34 @@ public class Movie {
         return title;
     }
 
+	double getCharge(int aDaysRented) {
+		double result = 0;
+		
+		switch(getPriceCode()){
+		case Movie.REGULAR:
+		    result += 2;
+		    if (aDaysRented>2)
+		        result += (aDaysRented -2 ) * 1.5;
+		    break;
+		case Movie.NEW_RELEASE:
+		    result += aDaysRented * 3;
+		    break;
+		case Movie.CHILDRENS:
+		    result += 1.5;
+		    if (aDaysRented>3)
+		        result += (aDaysRented - 3) * 1.5;
+		    break;
+		}
+		return result;
+	}
+
+	int getFrequentRentalPoints(int aDaysRented) {
+		//최신물을 이틀 이상 대여하면 보너스 포인트 지급
+		if ((getPriceCode() == Movie.NEW_RELEASE) && aDaysRented > 1) {
+		    return 2;
+		} else {
+			return 1;
+		}
+	}
+
 }
