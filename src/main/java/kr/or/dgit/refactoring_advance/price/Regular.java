@@ -1,12 +1,17 @@
 package kr.or.dgit.refactoring_advance.price;
 
-import kr.or.dgit.refactoring_advance.Movie;
-
 public class Regular extends Price {
+	private static Regular instance = new Regular();
+	
+	private Regular() {}
 
+	public static Regular getInstance() {
+		return instance;
+	}
+	
 	@Override
-	public int getPriceCode() {
-		return Movie.REGULAR;
+	public PriceType getPriceCode() {
+		return PriceType.REGULAR;
 	}
 
 	@Override

@@ -1,12 +1,21 @@
 package kr.or.dgit.refactoring_advance.price;
 
-import kr.or.dgit.refactoring_advance.Movie;
-
 public class Action extends Price {
+	private static Action instance = new Action();
+	
+	private Action() {}
+
+	public static Action getInstance() {
+		return instance;
+	}
+
+	public static void setInstance(Action instance) {
+		Action.instance = instance;
+	}
 
 	@Override
-	public int getPriceCode() {
-		return Movie.ACTION;
+	public PriceType getPriceCode() {
+		return PriceType.ACTION;
 	}
 
 	@Override

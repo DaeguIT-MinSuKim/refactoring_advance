@@ -1,22 +1,28 @@
 package kr.or.dgit.refactoring_advance.price;
 
-import kr.or.dgit.refactoring_advance.Movie;
-
 public class Children extends Price {
+	private static Children instance = new Children();
+
+	private Children() {
+	}
+
+	public static Children getInstance() {
+		return instance;
+	}
 
 	@Override
-	public int getPriceCode() {
-		return Movie.CHILDRENS;
+	public PriceType getPriceCode() {
+		return PriceType.CHILDRENS;
 	}
 
 	@Override
 	public double getCharge(int aDaysRented) {
 		double result = 0.0;
-		
+
 		result += 1.5;
-	    if (aDaysRented>3)
-	        result += (aDaysRented - 3) * 1.5;
-	    
+		if (aDaysRented > 3)
+			result += (aDaysRented - 3) * 1.5;
+
 		return result;
 	}
 
