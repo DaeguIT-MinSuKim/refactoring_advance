@@ -9,10 +9,6 @@ public class Action extends Price {
 		return instance;
 	}
 
-	public static void setInstance(Action instance) {
-		Action.instance = instance;
-	}
-
 	@Override
 	public PriceType getPriceCode() {
 		return PriceType.ACTION;
